@@ -4,45 +4,22 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-/**
- * Item in *Navigation → Links*
- */
-export interface NavigationDocumentDataLinksItem {
-  /**
-   * Label field in *Navigation → Links*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: Optional - Label for the link
-   * - **API ID Path**: navigation.links[].label
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label: prismic.TitleField;
-
-  /**
-   * Link field in *Navigation → Links*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: Link for navigation item
-   * - **API ID Path**: navigation.links[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
+type NavigationDocumentDataSlicesSlice = NavDropdownItemSlice;
 
 /**
  * Content for Navigation documents
  */
 interface NavigationDocumentData {
   /**
-   * Links field in *Navigation*
+   * Slice Zone field in *Navigation*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.links[]
+   * - **API ID Path**: navigation.slices[]
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  links: prismic.GroupField<Simplify<NavigationDocumentDataLinksItem>>;
+  slices: prismic.SliceZone<NavigationDocumentDataSlicesSlice>;
 }
 
 /**
@@ -62,6 +39,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | GridRecenteSlice
   | ImagesGridSlice
   | HeroSlice
   | QuoteSlice
@@ -234,6 +212,108 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
+
+/**
+ * Item in *GridRecente → Default → Primary → Products*
+ */
+export interface GridRecenteSliceDefaultPrimaryProductsItem {
+  /**
+   * Image field in *GridRecente → Default → Primary → Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_recente.default.primary.products[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Image Title field in *GridRecente → Default → Primary → Products*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_recente.default.primary.products[].image_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  image_title: prismic.RichTextField;
+
+  /**
+   * Image Price field in *GridRecente → Default → Primary → Products*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_recente.default.primary.products[].image_price
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  image_price: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *GridRecente → Default → Primary*
+ */
+export interface GridRecenteSliceDefaultPrimary {
+  /**
+   * Eyebrow field in *GridRecente → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_recente.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  eyebrow: prismic.RichTextField;
+
+  /**
+   * Title field in *GridRecente → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_recente.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Products field in *GridRecente → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_recente.default.primary.products[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  products: prismic.GroupField<
+    Simplify<GridRecenteSliceDefaultPrimaryProductsItem>
+  >;
+}
+
+/**
+ * Default variation for GridRecente Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GridRecenteSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GridRecenteSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *GridRecente*
+ */
+type GridRecenteSliceVariation = GridRecenteSliceDefault;
+
+/**
+ * GridRecente Shared Slice
+ *
+ * - **API ID**: `grid_recente`
+ * - **Description**: GridRecente
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GridRecenteSlice = prismic.SharedSlice<
+  "grid_recente",
+  GridRecenteSliceVariation
+>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -588,6 +668,68 @@ export type ImagesGridSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *NavDropdownItem → Default → Primary → Items*
+ */
+export interface NavDropdownItemSliceDefaultPrimaryItemsItem {
+  /**
+   * Child Link Label field in *NavDropdownItem → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_dropdown_item.default.primary.items[].child_link_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  child_link_label: prismic.RichTextField;
+
+  /**
+   * Child Link field in *NavDropdownItem → Default → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_dropdown_item.default.primary.items[].child_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  child_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *NavDropdownItem → Default → Primary*
+ */
+export interface NavDropdownItemSliceDefaultPrimary {
+  /**
+   * Nav Item Title Label field in *NavDropdownItem → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_dropdown_item.default.primary.nav_item_title_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  nav_item_title_label: prismic.RichTextField;
+
+  /**
+   * Nav Item Title Link field in *NavDropdownItem → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_dropdown_item.default.primary.nav_item_title_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  nav_item_title_link: prismic.LinkField;
+
+  /**
+   * Items field in *NavDropdownItem → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_dropdown_item.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<
+    Simplify<NavDropdownItemSliceDefaultPrimaryItemsItem>
+  >;
+}
+
+/**
  * Default variation for NavDropdownItem Slice
  *
  * - **API ID**: `default`
@@ -596,7 +738,7 @@ export type ImagesGridSlice = prismic.SharedSlice<
  */
 export type NavDropdownItemSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<NavDropdownItemSliceDefaultPrimary>,
   never
 >;
 
@@ -866,7 +1008,7 @@ declare module "@prismicio/client" {
     export type {
       NavigationDocument,
       NavigationDocumentData,
-      NavigationDocumentDataLinksItem,
+      NavigationDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -874,6 +1016,11 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataSocialsItem,
       AllDocumentTypes,
+      GridRecenteSlice,
+      GridRecenteSliceDefaultPrimaryProductsItem,
+      GridRecenteSliceDefaultPrimary,
+      GridRecenteSliceVariation,
+      GridRecenteSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
@@ -895,6 +1042,8 @@ declare module "@prismicio/client" {
       ImagesGridSliceVariation,
       ImagesGridSliceDefault,
       NavDropdownItemSlice,
+      NavDropdownItemSliceDefaultPrimaryItemsItem,
+      NavDropdownItemSliceDefaultPrimary,
       NavDropdownItemSliceVariation,
       NavDropdownItemSliceDefault,
       QuoteSlice,

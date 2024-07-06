@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "grid_recente": {
+              "type": "SharedSlice"
+            },
             "images_grid": {
               "type": "SharedSlice"
             },

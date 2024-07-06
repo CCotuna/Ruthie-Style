@@ -1,8 +1,8 @@
 {
-  "id": "nav_dropdown_item",
+  "id": "grid_recente",
   "type": "SharedSlice",
-  "name": "NavDropdownItem",
-  "description": "NavDropdownItem",
+  "name": "GridRecente",
+  "description": "GridRecente",
   "variations": [
     {
       "id": "default",
@@ -12,44 +12,54 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "nav_item_title_label": {
+        "eyebrow": {
           "type": "StructuredText",
           "config": {
-            "label": "Nav Item Title Label",
+            "label": "Eyebrow",
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
-        "nav_item_title_link": {
-          "type": "Link",
+        "title": {
+          "type": "StructuredText",
           "config": {
-            "label": "Nav Item Title Link",
+            "label": "Title",
             "placeholder": "",
-            "select": null
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
-        "items": {
+        "products": {
           "type": "Group",
           "config": {
-            "label": "Items",
+            "label": "Products",
             "repeat": true,
             "fields": {
-              "child_link_label": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "image_title": {
                 "type": "StructuredText",
                 "config": {
-                  "label": "Child Link Label",
+                  "label": "Image Title",
                   "placeholder": "",
                   "allowTargetBlank": true,
                   "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                 }
               },
-              "child_link": {
-                "type": "Link",
+              "image_price": {
+                "type": "StructuredText",
                 "config": {
-                  "label": "Child Link",
+                  "label": "Image Price",
                   "placeholder": "",
-                  "select": null
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
                 }
               }
             }

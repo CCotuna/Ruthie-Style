@@ -7,6 +7,7 @@ import { PrismicNextLink, PrismicPreview, PrismicNextImage } from "@prismicio/ne
 
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
+import { Navigation } from "@/components/Navigation";
 
 import * as prismic from "@prismicio/client";
 
@@ -34,9 +35,9 @@ async function Header() {
   const client = createClient();
   const settings = await client.getSingle("settings");
   const navigation = await client.getSingle("navigation");
-
+  console.log("navigation", navigation)
   return (
-    <div className="fixed top-0 left-0 w-full bg-white z-50 shadow-md">
+    <div className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
       <Bounded as="header" yPadding="xs">
         <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 leading-none">
           <PrismicNextLink
@@ -50,10 +51,10 @@ async function Header() {
                 className="w-16 h-16"
               />
             )}
-            <PrismicText field={settings.data.siteTitle} />
           </PrismicNextLink>
 
-          {/* <Navigation navigation={navigation} /> */}
+            
+          <Navigation navigation={navigation} />
         </div>
       </Bounded>
     </div>

@@ -6,27 +6,13 @@
   "status": true,
   "json": {
     "Main": {
-      "links": {
-        "type": "Group",
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
         "config": {
-          "label": "Links",
-          "fields": {
-            "label": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Label",
-                "placeholder": "Optional - Label for the link",
-                "allowTargetBlank": false,
-                "single": "heading3"
-              }
-            },
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "Link",
-                "placeholder": "Link for navigation item",
-                "select": null
-              }
+          "choices": {
+            "nav_dropdown_item": {
+              "type": "SharedSlice"
             }
           }
         }

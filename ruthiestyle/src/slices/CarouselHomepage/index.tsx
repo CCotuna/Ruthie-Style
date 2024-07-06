@@ -55,7 +55,7 @@ const ImagesGrid = ({ slice }: ImagesGridProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="px-6 md:px-40 pb-10"
+      className="px-6 md:px-44 pb-10"
     >
       <h5 className="text-md font-bold mb-2 flex max-w-96 uppercase text-red-500">
         <PrismicText field={slice.primary.eyebrow} />
@@ -63,6 +63,7 @@ const ImagesGrid = ({ slice }: ImagesGridProps): JSX.Element => {
       <h2 className="text-4xl font-bold mb-12 flex max-w-lg uppercase">
         <PrismicRichText field={slice.primary.title} />
       </h2>
+      <div className="">
       <Slider {...sliderSettings}>
         {slice.primary.images.map((item, index) => (
           <div className="px-3 flex items-stretch" key={index}>
@@ -106,6 +107,7 @@ const ImagesGrid = ({ slice }: ImagesGridProps): JSX.Element => {
           </div>
         ))}
       </Slider>
+      </div>
     </section>
   );
 };

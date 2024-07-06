@@ -2,7 +2,60 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"nav_item_title_label": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sunt ipsum duis laboris enim id culpa veniam nulla labore dolore ipsum nisi excepteur. Aute ex laborum consectetur excepteur officia magna ipsum anim ad ex laborum reprehenderit fugiat cillum duis."
+						}
+					}
+				]
+			},
+			"nav_item_title_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"child_link_label",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Laboris ullamco pariatur mollit irure."
+											}
+										}
+									]
+								}
+							],
+							[
+								"child_link",
+								{
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
 		"items": []
 	}
 ]
