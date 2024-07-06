@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ImagesGridSlice
   | HeroSlice
   | QuoteSlice
   | TextSlice
@@ -430,6 +431,116 @@ export type ImageCardsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *CarouselHomepage → Default → Primary → Images*
+ */
+export interface ImagesGridSliceDefaultPrimaryImagesItem {
+  /**
+   * Image Title field in *CarouselHomepage → Default → Primary → Images*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_grid.default.primary.images[].image_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  image_title: prismic.RichTextField;
+
+  /**
+   * Image Description field in *CarouselHomepage → Default → Primary → Images*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_grid.default.primary.images[].image_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  image_description: prismic.RichTextField;
+
+  /**
+   * Image field in *CarouselHomepage → Default → Primary → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_grid.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Image Link Media field in *CarouselHomepage → Default → Primary → Images*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_grid.default.primary.images[].image_link_media
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  image_link_media: prismic.LinkToMediaField;
+}
+
+/**
+ * Primary content in *CarouselHomepage → Default → Primary*
+ */
+export interface ImagesGridSliceDefaultPrimary {
+  /**
+   * Title field in *CarouselHomepage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_grid.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Eyebrow field in *CarouselHomepage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_grid.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  eyebrow: prismic.RichTextField;
+
+  /**
+   * Images field in *CarouselHomepage → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images_grid.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<Simplify<ImagesGridSliceDefaultPrimaryImagesItem>>;
+}
+
+/**
+ * Default variation for CarouselHomepage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImagesGridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImagesGridSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CarouselHomepage*
+ */
+type ImagesGridSliceVariation = ImagesGridSliceDefault;
+
+/**
+ * CarouselHomepage Shared Slice
+ *
+ * - **API ID**: `images_grid`
+ * - **Description**: ImagesGrid
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImagesGridSlice = prismic.SharedSlice<
+  "images_grid",
+  ImagesGridSliceVariation
+>;
+
+/**
  * Primary content in *Quote → Default → Primary*
  */
 export interface QuoteSliceDefaultPrimary {
@@ -700,6 +811,11 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefaultPrimary,
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
+      ImagesGridSlice,
+      ImagesGridSliceDefaultPrimaryImagesItem,
+      ImagesGridSliceDefaultPrimary,
+      ImagesGridSliceVariation,
+      ImagesGridSliceDefault,
       QuoteSlice,
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,
