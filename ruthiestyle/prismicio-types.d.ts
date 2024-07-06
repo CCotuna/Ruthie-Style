@@ -152,6 +152,31 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 /**
+ * Item in *Settings → Socials*
+ */
+export interface SettingsDocumentDataSocialsItem {
+  /**
+   * Link Label field in *Settings → Socials*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.socials[].link_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  link_label: prismic.RichTextField;
+
+  /**
+   * Link field in *Settings → Socials*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.socials[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -165,6 +190,28 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   siteTitle: prismic.TitleField;
+
+  /**
+   * Logo field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Socials field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.socials[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  socials: prismic.GroupField<Simplify<SettingsDocumentDataSocialsItem>>;
 }
 
 /**
@@ -541,6 +588,36 @@ export type ImagesGridSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Default variation for NavDropdownItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavDropdownItemSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *NavDropdownItem*
+ */
+type NavDropdownItemSliceVariation = NavDropdownItemSliceDefault;
+
+/**
+ * NavDropdownItem Shared Slice
+ *
+ * - **API ID**: `nav_dropdown_item`
+ * - **Description**: NavDropdownItem
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavDropdownItemSlice = prismic.SharedSlice<
+  "nav_dropdown_item",
+  NavDropdownItemSliceVariation
+>;
+
+/**
  * Primary content in *Quote → Default → Primary*
  */
 export interface QuoteSliceDefaultPrimary {
@@ -795,6 +872,7 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
+      SettingsDocumentDataSocialsItem,
       AllDocumentTypes,
       HeroSlice,
       HeroSliceDefaultPrimary,
@@ -816,6 +894,9 @@ declare module "@prismicio/client" {
       ImagesGridSliceDefaultPrimary,
       ImagesGridSliceVariation,
       ImagesGridSliceDefault,
+      NavDropdownItemSlice,
+      NavDropdownItemSliceVariation,
+      NavDropdownItemSliceDefault,
       QuoteSlice,
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,

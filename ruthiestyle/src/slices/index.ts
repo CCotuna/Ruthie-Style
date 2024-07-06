@@ -7,6 +7,7 @@ export const components = {
   image: dynamic(() => import("./Image")),
   image_cards: dynamic(() => import("./ImageCards")),
   images_grid: dynamic(() => import("./CarouselHomepage")),
+  nav_dropdown_item: dynamic(() => import("./NavDropdownItem")),
   quote: dynamic(() => import("./Quote")),
   text: dynamic(() => import("./Text")),
   text_with_image: dynamic(() => import("./TextWithImage")),

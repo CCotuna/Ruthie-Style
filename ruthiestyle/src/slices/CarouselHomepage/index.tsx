@@ -19,7 +19,7 @@ const ImagesGrid = ({ slice }: ImagesGridProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="px-6 md:px-40 pb-10"
     >
-      <h5 className="text-md font-bold mb-2 flex max-w-96 uppercase">
+      <h5 className="text-md font-bold mb-2 flex max-w-96 uppercase text-red-500">
         <PrismicText field={slice.primary.eyebrow} />
       </h5>
       <h2 className="text-4xl font-bold mb-12 flex max-w-lg uppercase">

@@ -1,0 +1,16 @@
+{
+  "id": "nav_dropdown_item",
+  "type": "SharedSlice",
+  "name": "NavDropdownItem",
+  "description": "NavDropdownItem",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}
