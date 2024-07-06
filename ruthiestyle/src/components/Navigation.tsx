@@ -7,7 +7,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import { PrismicText } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
 
-export function Navigation({ navigation }) {
+export function Navigation({ navigation }: { navigation: any }) {
     const [isOpen, setIsOpen] = useState(false);
     const [activeParent, setActiveParent] = useState(null);
 
@@ -16,7 +16,7 @@ export function Navigation({ navigation }) {
         setActiveParent(null);
     }
 
-    const toggleChildLinks = (index) => {
+    const toggleChildLinks = (index: React.SetStateAction<null>) => {
         if (activeParent === index) {
             setActiveParent(null);
         } else {
@@ -59,7 +59,7 @@ export function Navigation({ navigation }) {
 
             <nav className="hidden lg:block">
                 <ul className="flex flex-wrap gap-6 md:gap-10">
-                    {navigation.data.slices.map((slice) => (
+                    {navigation.data.slices.map((slice: { primary: { nav_item_title_label: prismic.RichTextField | null | undefined; nav_item_title_link: prismic.LinkField | null | undefined; items: { child_link: prismic.LinkField | null | undefined; child_link_label: prismic.RichTextField | null | undefined; }[]; }; items: { length: prismic.RichTextField | null | undefined; }; }) => (
                         <li
                             key={prismic.asText(slice.primary.nav_item_title_label)}
                             className="font-medium text-black  uppercase relative group"
@@ -73,7 +73,7 @@ export function Navigation({ navigation }) {
                             <PrismicText field={slice.items.length} />
                             {slice.primary.items.length > 0 && (
                                 <ul className="absolute left-1/2 transform -translate-x-1/2 text-center text-white rounded hidden space-y-5 p-5 pt-8 bg-black shadow-lg  group-hover:block whitespace-nowrap">
-                                    {slice.primary.items.map((item, itemIndex) => (
+                                    {slice.primary.items.map((item: { child_link: prismic.LinkField | null | undefined; child_link_label: prismic.RichTextField | null | undefined; }, itemIndex: React.Key | null | undefined) => (
                                         <li key={itemIndex}>
                                             <PrismicNextLink
                                                 field={item.child_link}
@@ -92,7 +92,7 @@ export function Navigation({ navigation }) {
             {isOpen && (
                 <nav className="block lg:hidden w-full pt-4 pb-4">
                     <ul className="flex flex-col w-full">
-                        {navigation.data.slices.map((slice, index) => (
+                        {navigation.data.slices.map((slice: { primary: { nav_item_title_label: prismic.RichTextField | null | undefined; items: any[]; nav_item_title_link: prismic.EmptyLinkField<"Any"> | null | undefined; }; }, index: null) => (
                             <li
                                 key={prismic.asText(slice.primary.nav_item_title_label)}
                                 className="font-medium py-4 border-b border-black last:border-none last:pb-2 text-black relative"
