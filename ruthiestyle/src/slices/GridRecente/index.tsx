@@ -35,8 +35,7 @@ const GridRecente = ({ slice }: GridRecenteProps): JSX.Element => {
                 </span>
                 <span className="block font-semibold text-lg">
                   <PrismicText field={product.image_title} />
-                </span>
-                
+                </span>    
               </div>
               <span className="absolute bottom-0 right-0 m-4 bg-white rounded-lg text-orange-500 text-xs text-center font-bold px-3 py-2 leading-none items-center">
                   RON <PrismicText field={product.image_price} />
