@@ -3,8 +3,10 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  alternate_grid: dynamic(() => import("./AlternateGrid")),
   grid_recente: dynamic(() => import("./GridRecente")),
   hero: dynamic(() => import("./Hero")),
+  hero_2: dynamic(() => import("./Hero2")),
   hero_homepage: dynamic(() => import("./HeroHomepage")),
   image: dynamic(() => import("./Image")),
   image_cards: dynamic(() => import("./ImageCards")),

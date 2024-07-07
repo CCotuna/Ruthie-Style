@@ -15,11 +15,11 @@ const HeroHomepage = ({ slice }: HeroHomepageProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="bg-white py-12 mt-20 md:mt-0 md:py-20 text-center md:text-left"
+      className="bg-white py-12 mt-20 md:mt-10 md:pt-20 text-left"
     >
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center">
-          <div className="md:col-span-7">
+          <div className="md:col-span-7 p-3">
             <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-none mb-4 max-w-2xl mx-auto">
               <PrismicText field={slice.primary.title} />
             </h1>

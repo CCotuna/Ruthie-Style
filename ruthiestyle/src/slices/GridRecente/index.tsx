@@ -16,7 +16,7 @@ const GridRecente = ({ slice }: GridRecenteProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className="pb-8"
     >
-      <div className="text-center p-10 pb-0">
+      <div className="text-left md:text-center p-6 md:p-10 pb-0">
         <h5 className="font-bold text-md mb-2 uppercase text-red-500">
           <PrismicText field={slice.primary.eyebrow} />
         </h5>
@@ -24,9 +24,9 @@ const GridRecente = ({ slice }: GridRecenteProps): JSX.Element => {
           <PrismicText field={slice.primary.title} />
         </h2>
       </div>
-      <div className="w-fit mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center  mt-10 mb-5">
+      <div className="w-fit mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center mb-5">
         {slice.primary.products.map((product, index) => (
-          <div key={index} className="flex">
+          <div key={index} className="flex border p-2 me-4 rounded-lg">
             <div className="flex-shrink-0 m-6 relative overflow-hidden bg-brand-darkcyan rounded-lg max-w-xs shadow-lg transform transition duration-300 hover:scale-105 hover:z-20">
               <PrismicImage field={product.image} className="w-full" />
               <div className=" text-white px-6 pb-6 mt-6 flex flex-col">
