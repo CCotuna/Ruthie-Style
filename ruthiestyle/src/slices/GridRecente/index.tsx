@@ -14,7 +14,7 @@ const GridRecente = ({ slice }: GridRecenteProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="mb-10"
+      className="pb-8"
     >
       <div className="text-center p-10 pb-0">
         <h5 className="font-bold text-md mb-2 uppercase text-red-500">

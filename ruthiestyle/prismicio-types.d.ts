@@ -39,6 +39,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | HeroHomepageSlice
   | GridRecenteSlice
   | ImagesGridSlice
   | HeroSlice
@@ -396,6 +397,91 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *HeroHomepage → Default → Primary*
+ */
+export interface HeroHomepageSliceDefaultPrimary {
+  /**
+   * Title field in *HeroHomepage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_homepage.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Subtitle field in *HeroHomepage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_homepage.default.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Contact field in *HeroHomepage → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_homepage.default.primary.contact
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  contact: prismic.LinkField;
+
+  /**
+   * Contact Label field in *HeroHomepage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_homepage.default.primary.contact_label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact_label: prismic.RichTextField;
+
+  /**
+   * Image field in *HeroHomepage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_homepage.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HeroHomepage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroHomepageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroHomepageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroHomepage*
+ */
+type HeroHomepageSliceVariation = HeroHomepageSliceDefault;
+
+/**
+ * HeroHomepage Shared Slice
+ *
+ * - **API ID**: `hero_homepage`
+ * - **Description**: HeroHomepage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroHomepageSlice = prismic.SharedSlice<
+  "hero_homepage",
+  HeroHomepageSliceVariation
+>;
 
 /**
  * Primary content in *Image → Default → Primary*
@@ -1035,6 +1121,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HeroHomepageSlice,
+      HeroHomepageSliceDefaultPrimary,
+      HeroHomepageSliceVariation,
+      HeroHomepageSliceDefault,
       ImageSlice,
       ImageSliceDefaultPrimary,
       ImageSliceBannerPrimary,
