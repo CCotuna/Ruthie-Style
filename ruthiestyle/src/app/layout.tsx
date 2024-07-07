@@ -9,6 +9,7 @@ import { PrismicNextLink, PrismicPreview, PrismicNextImage } from "@prismicio/ne
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
 import { Navigation } from "@/components/Navigation";
+import ScrollTopButton from "@/components/ScrollTopButton";
 
 import * as prismic from "@prismicio/client";
 
@@ -28,6 +29,7 @@ export default async function RootLayout({
         {children}
         <PrismicPreview repositoryName={repositoryName} />
         <CallButton />
+        <ScrollTopButton />
       </body>
     </html>
   );
@@ -66,7 +68,7 @@ function CallButton() {
   return (
     <a
       href="tel:0774324923"
-      className="fixed bottom-8 left-8 z-50 bg-brand-darkcyan text-white rounded-full p-4 shadow-lg hover:bg-red-600 focus:bg-red-600 transition duration-300"
+      className="fixed bottom-4 left-4 z-50 bg-brand-darkcyan text-white rounded-full p-4 shadow-lg hover:bg-brand-darkgreen hover:text-brand-honeydew transition-colors duration-300"
       aria-label="Call us"
     >
             <FaPhone className="h-6 w-6" />
