@@ -27,7 +27,7 @@ export function Navigation({ navigation }: { navigation: any }) {
     };
 
     const openWhatsAppChat = () => {
-        const phoneNumber = "+40756576954";
+        const phoneNumber = "+40746930853";
         const url = `https://api.whatsapp.com/send?phone=${encodeURIComponent(phoneNumber)}`;
         window.open(url, "_blank");
       };
