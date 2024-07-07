@@ -7,7 +7,7 @@ interface WhatsAppButtonProps {
   w?: number;
 }
 
-const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ h = 6, w = 6 }) => {
+const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ h = 8, w = 8 }) => {
   const openWhatsAppChat = () => {
     const phoneNumber = "+40756576954";
     const url = `https://api.whatsapp.com/send?phone=${encodeURIComponent(
