@@ -1,4 +1,5 @@
 import "./globals.css";
+import { FaPhone } from "react-icons/fa"; 
 
 import { Inter } from "next/font/google";
 import { asText } from "@prismicio/client";
@@ -26,6 +27,7 @@ export default async function RootLayout({
         <Header />
         {children}
         <PrismicPreview repositoryName={repositoryName} />
+        <CallButton />
       </body>
     </html>
   );
@@ -35,7 +37,6 @@ async function Header() {
   const client = createClient();
   const settings = await client.getSingle("settings");
   const navigation = await client.getSingle("navigation");
-  console.log("navigation", navigation)
   return (
     <div className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
       <Bounded as="header" yPadding="xs">
@@ -58,5 +59,17 @@ async function Header() {
         </div>
       </Bounded>
     </div>
+  );
+}
+
+function CallButton() {
+  return (
+    <a
+      href="tel:0774324923"
+      className="fixed bottom-8 left-8 z-50 bg-brand-darkcyan text-white rounded-full p-4 shadow-lg hover:bg-red-600 focus:bg-red-600 transition duration-300"
+      aria-label="Call us"
+    >
+            <FaPhone className="h-6 w-6" />
+    </a>
   );
 }
