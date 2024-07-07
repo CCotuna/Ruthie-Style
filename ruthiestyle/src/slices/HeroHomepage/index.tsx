@@ -23,7 +23,7 @@ const HeroHomepage = ({ slice }: HeroHomepageProps): JSX.Element => {
             <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-none mb-4 max-w-2xl mx-auto">
               <PrismicText field={slice.primary.title} />
             </h1>
-            <p className="text-lg md:text-xl font-light text-gray-500 mb-6 md:mb-8 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl font-light text-gray-500 mb-6 md:mb-8 max-w-xl">
               <PrismicText field={slice.primary.subtitle} />
             </p>
             <PrismicNextLink

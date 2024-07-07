@@ -39,6 +39,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | GridProductsSlice
   | AlternateGridSlice
   | Hero2Slice
   | HeroHomepageSlice
@@ -423,6 +424,128 @@ type AlternateGridSliceVariation =
 export type AlternateGridSlice = prismic.SharedSlice<
   "alternate_grid",
   AlternateGridSliceVariation
+>;
+
+/**
+ * Item in *GridProducts → Default → Primary → Products*
+ */
+export interface GridProductsSliceDefaultPrimaryProductsItem {
+  /**
+   * Image field in *GridProducts → Default → Primary → Products*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.products[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Product Name field in *GridProducts → Default → Primary → Products*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.products[].product_name
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  product_name: prismic.RichTextField;
+
+  /**
+   * Product Price field in *GridProducts → Default → Primary → Products*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.products[].product_price
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  product_price: prismic.RichTextField;
+
+  /**
+   * Product Category field in *GridProducts → Default → Primary → Products*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.products[].product_category
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  product_category: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *GridProducts → Default → Primary*
+ */
+export interface GridProductsSliceDefaultPrimary {
+  /**
+   * Title field in *GridProducts → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Subtitle field in *GridProducts → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Call To Action field in *GridProducts → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.call_to_action
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  call_to_action: prismic.RichTextField;
+
+  /**
+   * Products field in *GridProducts → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.products[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  products: prismic.GroupField<
+    Simplify<GridProductsSliceDefaultPrimaryProductsItem>
+  >;
+}
+
+/**
+ * Default variation for GridProducts Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GridProductsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GridProductsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *GridProducts*
+ */
+type GridProductsSliceVariation = GridProductsSliceDefault;
+
+/**
+ * GridProducts Shared Slice
+ *
+ * - **API ID**: `grid_products`
+ * - **Description**: GridProducts
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GridProductsSlice = prismic.SharedSlice<
+  "grid_products",
+  GridProductsSliceVariation
 >;
 
 /**
@@ -1501,6 +1624,11 @@ declare module "@prismicio/client" {
       AlternateGridSliceVariation,
       AlternateGridSliceDefault,
       AlternateGridSliceImageRight,
+      GridProductsSlice,
+      GridProductsSliceDefaultPrimaryProductsItem,
+      GridProductsSliceDefaultPrimary,
+      GridProductsSliceVariation,
+      GridProductsSliceDefault,
       GridRecenteSlice,
       GridRecenteSliceDefaultPrimaryProductsItem,
       GridRecenteSliceDefaultPrimary,
