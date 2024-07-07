@@ -1,13 +1,13 @@
 "use client"
 import type { ReactNode } from "react";
+import { FaWhatsapp } from "react-icons/fa";
+
 import clsx from "clsx";
 
 import React, { useState } from "react";
 import { PrismicNextLink } from "@prismicio/next";
 import { PrismicText } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
-
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 export function Navigation({ navigation }: { navigation: any }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,10 +25,19 @@ export function Navigation({ navigation }: { navigation: any }) {
             setActiveParent(index);
         }
     };
+
+    const openWhatsAppChat = () => {
+        const phoneNumber = "+40756576954";
+        const url = `https://api.whatsapp.com/send?phone=${encodeURIComponent(phoneNumber)}`;
+        window.open(url, "_blank");
+      };
     return (
         <>
-            <div className="lg:hidden flex space-x-5 items-center">
-            <WhatsAppButton h={8} w={8} />
+            <div className="flex space-x-5 items-center">
+            <FaWhatsapp
+          className="block lg:hidden h-8 w-8 mt-2 text-brand-darkcyan cursor-pointer"
+          onClick={openWhatsAppChat}
+        />
             <button
                 className="block lg:hidden font-medium text-slate-700"
                 onClick={handleMenuClick}
