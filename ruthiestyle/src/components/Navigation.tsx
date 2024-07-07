@@ -7,6 +7,8 @@ import { PrismicNextLink } from "@prismicio/next";
 import { PrismicText } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
 
+import WhatsAppButton from "@/components/WhatsAppButton";
+
 export function Navigation({ navigation }: { navigation: any }) {
     const [isOpen, setIsOpen] = useState(false);
     const [activeParent, setActiveParent] = useState(null);
@@ -25,6 +27,8 @@ export function Navigation({ navigation }: { navigation: any }) {
     };
     return (
         <>
+            <div className="lg:hidden flex space-x-5 items-center">
+            <WhatsAppButton h={8} w={8} />
             <button
                 className="block lg:hidden font-medium text-slate-700"
                 onClick={handleMenuClick}
@@ -57,6 +61,7 @@ export function Navigation({ navigation }: { navigation: any }) {
                 </svg>
             </button>
 
+            </div>
             <nav className="hidden lg:block">
                 <ul className="flex flex-wrap gap-6 md:gap-10">
                     {navigation.data.slices.map((slice: { primary: { nav_item_title_label: prismic.RichTextField | null | undefined; nav_item_title_link: prismic.LinkField | null | undefined; items: { child_link: prismic.LinkField | null | undefined; child_link_label: prismic.RichTextField | null | undefined; }[]; }; items: { length: prismic.RichTextField | null | undefined; }; }) => (
@@ -91,11 +96,11 @@ export function Navigation({ navigation }: { navigation: any }) {
             </nav>
             {isOpen && (
                 <nav className="block lg:hidden w-full pt-4 pb-4">
-                    <ul className="flex flex-col w-full">
+                    <ul className="flex flex-col w-screen -ms-6 h-screen ">
                         {navigation.data.slices.map((slice: { primary: { nav_item_title_label: prismic.RichTextField | null | undefined; items: any[]; nav_item_title_link: prismic.EmptyLinkField<"Any"> | null | undefined; }; }, index: null) => (
                             <li
                                 key={prismic.asText(slice.primary.nav_item_title_label)}
-                                className="font-medium py-4 border-b border-black last:border-none last:pb-2 text-black relative"
+                                className="font-medium py-4 ms-5 border-b border-black last:border-none last:pb-2 text-black relative"
                             >
                                 <div
                                     onClick={() => toggleChildLinks(index)}
