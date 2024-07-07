@@ -228,6 +228,16 @@ export interface GridRecenteSliceDefaultPrimaryProductsItem {
   image: prismic.ImageField<never>;
 
   /**
+   * Product Category field in *GridRecente → Default → Primary → Products*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_recente.default.primary.products[].product_category
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  product_category: prismic.RichTextField;
+
+  /**
    * Image Title field in *GridRecente → Default → Primary → Products*
    *
    * - **Field Type**: Rich Text

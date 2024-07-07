@@ -63,10 +63,10 @@ const ImagesGrid = ({ slice }: ImagesGridProps): JSX.Element => {
       <h2 className="text-4xl font-bold mb-12 flex max-w-lg uppercase">
         <PrismicRichText field={slice.primary.title} />
       </h2>
-      <div className="">
+      <div>
       <Slider {...sliderSettings}>
         {slice.primary.images.map((item, index) => (
-          <div className="px-3 flex items-stretch" key={index}>
+          <div className="flex px-4 items-stretch" key={index}>
             <PrismicNextLink
             key={index}
             field={item.image_link_media}

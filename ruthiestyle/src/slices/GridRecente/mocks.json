@@ -84,6 +84,20 @@
 										}
 									]
 								}
+							],
+							[
+								"product_category",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Eiusmod incididunt minim nulla ex culpa elit sit. Ad culpa do mollit in deserunt veniam ad non ullamco nostrud do aute cupidatat nostrud."
+											}
+										}
+									]
+								}
 							]
 						]
 					}
