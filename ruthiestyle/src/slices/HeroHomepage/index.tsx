@@ -20,7 +20,7 @@ const HeroHomepage = ({ slice }: HeroHomepageProps): JSX.Element => {
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-center">
           <div className="md:col-span-7 p-3">
-            <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold tracking-tight leading-none mb-4 max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl xl:text-6xl text-brand-darkgreen font-extrabold tracking-tight leading-none mb-4 max-w-2xl mx-auto">
               <PrismicText field={slice.primary.title} />
             </h1>
             <p className="text-lg md:text-xl font-light text-gray-500 mb-6 md:mb-8 max-w-xl">

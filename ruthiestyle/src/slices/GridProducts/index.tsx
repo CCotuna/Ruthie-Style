@@ -18,12 +18,12 @@ const GridProducts = ({ slice }: GridProductsProps): JSX.Element => {
       className="pb-8"
     >
       <div className="text-left md:text-center p-6 md:p-10 pb-0">
-        <h2 className="text-4xl font-bold uppercase text-gray-900">
-          <PrismicText field={slice.primary.title} />
-        </h2>
-        <h4 className="text-lg font-bold tracking-tight text-gray-900 mt-4">
+      <h4 className="text-lg font-bold tracking-tight text-red-500 mt-4">
           <PrismicText field={slice.primary.subtitle} />
         </h4>
+        <h2 className="text-4xl font-bold uppercase text-brand-darkgreen">
+          <PrismicText field={slice.primary.title} />
+        </h2>
         <h5 className="text-sm font-bold tracking-tight text-gray-900 mt-2">
           <PrismicText field={slice.primary.call_to_action} />
         </h5>

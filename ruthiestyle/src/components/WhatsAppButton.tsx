@@ -17,7 +17,7 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ h = 8, w = 8 }) => {
   };
 
   return (
-      <FaWhatsapp onClick={openWhatsAppChat} className={`h-${h} w-${w} mt-2 lg:mt-0 text-brand-darkcyan cursor-pointer`} />
+      <FaWhatsapp onClick={openWhatsAppChat} className={`h-${h} w-${w} mt-2 lg:mt-0 text-brand-darkcyan hover:text-brand-darkgreen cursor-pointer`} />
   );
 };
 

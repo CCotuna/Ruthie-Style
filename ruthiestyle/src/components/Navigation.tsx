@@ -30,45 +30,45 @@ export function Navigation({ navigation }: { navigation: any }) {
         const phoneNumber = "+40746930853";
         const url = `https://api.whatsapp.com/send?phone=${encodeURIComponent(phoneNumber)}`;
         window.open(url, "_blank");
-      };
+    };
     return (
         <>
             <div className="flex space-x-5 items-center">
-            <FaWhatsapp
-          className="block lg:hidden h-8 w-8 mt-2 text-brand-darkcyan cursor-pointer"
-          onClick={openWhatsAppChat}
-        />
-            <button
-                className="block lg:hidden font-medium text-slate-700"
-                onClick={handleMenuClick}
-            >
-                <svg viewBox="0 0 100 80" width="40" height="40">
-                    <rect
-                        y="20"
-                        width="80"
-                        height="10"
-                        rx="10"
-                        ry="10"
-                        fill="#303f55"
-                    ></rect>
-                    <rect
-                        y="40"
-                        width="80"
-                        height="10"
-                        rx="5"
-                        ry="5"
-                        fill="#61728b"
-                    ></rect>
-                    <rect
-                        y="60"
-                        width="80"
-                        height="10"
-                        rx="15"
-                        ry="5"
-                        fill="#303f55"
-                    ></rect>
-                </svg>
-            </button>
+                <FaWhatsapp
+                    className="block lg:hidden h-8 w-8 mt-2 text-brand-darkcyan cursor-pointer"
+                    onClick={openWhatsAppChat}
+                />
+                <button
+                    className="block lg:hidden font-medium text-brand-darkgreen cursor-pointer"
+                    onClick={handleMenuClick}
+                >
+                    <svg viewBox="0 0 100 80" width="40" height="40">
+                        <rect
+                            y="20"
+                            width="80"
+                            height="10"
+                            rx="10"
+                            ry="10"
+                            fill="#082D0F"
+                        ></rect>
+                        <rect
+                            y="40"
+                            width="80"
+                            height="10"
+                            rx="5"
+                            ry="5"
+                            fill="#0D9488"
+                        ></rect>
+                        <rect
+                            y="60"
+                            width="80"
+                            height="10"
+                            rx="15"
+                            ry="5"
+                            fill="#082D0F"
+                        ></rect>
+                    </svg>
+                </button>
 
             </div>
             <nav className="hidden lg:block">
@@ -76,22 +76,22 @@ export function Navigation({ navigation }: { navigation: any }) {
                     {navigation.data.slices.map((slice: { primary: { nav_item_title_label: prismic.RichTextField | null | undefined; nav_item_title_link: prismic.LinkField | null | undefined; items: { child_link: prismic.LinkField | null | undefined; child_link_label: prismic.RichTextField | null | undefined; }[]; }; items: { length: prismic.RichTextField | null | undefined; }; }) => (
                         <li
                             key={prismic.asText(slice.primary.nav_item_title_label)}
-                            className="font-medium text-black  uppercase relative group"
+                            className="font-medium text-brand-darkgreen  uppercase relative group"
                         >
                             <PrismicNextLink
                                 field={slice.primary.nav_item_title_link}
-                                className="hover:text-yellow-500"
+                                className="hover:text-brand-darkcyan"
                             >
                                 <PrismicText field={slice.primary.nav_item_title_label} />
                             </PrismicNextLink>
                             <PrismicText field={slice.items.length} />
                             {slice.primary.items.length > 0 && (
-                                <ul className="absolute left-1/2 transform -translate-x-1/2 text-center text-white rounded hidden space-y-5 p-5 pt-8 bg-black shadow-lg  group-hover:block whitespace-nowrap">
+                                <ul className="absolute transform -translate-x-1/2 text-white rounded hidden p-5 pt-8 bg-brand-darkcyan shadow-lg group-hover:grid grid-cols-1 md:grid-cols-3 gap-4 whitespace-nowrap min-w-[36rem] max-w-[48rem]">
                                     {slice.primary.items.map((item: { child_link: prismic.LinkField | null | undefined; child_link_label: prismic.RichTextField | null | undefined; }, itemIndex: React.Key | null | undefined) => (
-                                        <li key={itemIndex}>
+                                        <li key={itemIndex} className="mb-4">
                                             <PrismicNextLink
                                                 field={item.child_link}
-                                                className="hover:text-white"
+                                                className="hover:text-brand-darkgreen"
                                             >
                                                 <PrismicText field={item.child_link_label} />
                                             </PrismicNextLink>
@@ -99,6 +99,9 @@ export function Navigation({ navigation }: { navigation: any }) {
                                     ))}
                                 </ul>
                             )}
+
+
+
                         </li>
                     ))}
                 </ul>

@@ -60,7 +60,7 @@ const ImagesGrid = ({ slice }: ImagesGridProps): JSX.Element => {
       <h5 className="text-md font-bold mb-2 flex max-w-96 uppercase text-red-500">
         <PrismicText field={slice.primary.eyebrow} />
       </h5>
-      <h2 className="text-4xl font-bold mb-12 flex max-w-lg uppercase">
+      <h2 className="text-4xl font-bold mb-12 flex max-w-lg uppercase text-brand-darkgreen">
         <PrismicRichText field={slice.primary.title} />
       </h2>
       <div>

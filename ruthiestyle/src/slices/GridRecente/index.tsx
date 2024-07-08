@@ -20,7 +20,7 @@ const GridRecente = ({ slice }: GridRecenteProps): JSX.Element => {
         <h5 className="font-bold text-md mb-2 uppercase text-red-500">
           <PrismicText field={slice.primary.eyebrow} />
         </h5>
-        <h2 className="text-4xl font-bold uppercase">
+        <h2 className="text-4xl font-bold uppercase text-brand-darkgreen">
           <PrismicText field={slice.primary.title} />
         </h2>
       </div>

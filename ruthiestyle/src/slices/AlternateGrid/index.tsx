@@ -31,12 +31,12 @@ const AlternateGrid = ({ slice }: AlternateGridProps): JSX.Element => {
         <div className={`p-5 md:p-0 grid gap-8 ${isImageRight ? "order-1 md:order-1" : "order-2 md:order-2"}`}>
           <div className="grid gap-2">
             {isFilled.keyText(slice.primary.eyebrowHeadline) && (
-              <p className="text-brand-darkcyan text-lg font-medium m-0">
+              <p className="text-brand-darkcyan text-lg font-medium m-0 uppercase">
                 {slice.primary.eyebrowHeadline}
               </p>
             )}
             {isFilled.richText(slice.primary.title) && (
-              <div className="text-xl font-bold md:text-2xl lg:text-3xl xl:text-[2.75rem] m-0">
+              <div className="text-xl font-bold md:text-2xl lg:text-3xl xl:text-[2.75rem] m-0 text-brand-darkgreen">
                 <PrismicRichText field={slice.primary.title} />
               </div>
             )}
@@ -51,7 +51,7 @@ const AlternateGrid = ({ slice }: AlternateGridProps): JSX.Element => {
               {slice.primary.items.map((item, i) => (
                 <div key={`item-${i + 1}`} className="grid">
                   {isFilled.richText(item.title) && (
-                    <div className="font-bold text-[1.17rem] mt-0 mb-2">
+                    <div className="font-bold text-[1.17rem] mt-0 mb-2 text-brand-darkgreen">
                       <PrismicRichText field={item.title} />
                     </div>
                   )}

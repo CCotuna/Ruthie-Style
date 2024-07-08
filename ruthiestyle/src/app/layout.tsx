@@ -49,7 +49,7 @@ async function Header() {
         <div className="flex flex-wrap align-bottom items-center justify-between gap-x-6 gap-y-3 leading-none">
           <PrismicNextLink
             href="/"
-            className="flex items-center gap-x-4 text-slate-800 text-xl font-semibold tracking-tight"
+            className="flex items-center gap-x-4 text-brand-darkgreen text-xl font-semibold tracking-tight"
           >
             {prismic.isFilled.image(settings.data.logo) && (
               <PrismicNextImage
@@ -71,13 +71,12 @@ async function Header() {
             <PrismicNextLink
               key={index}
               field={social.link}
-              className="text-gray-500 hover:text-gray-900"
             >
               {prismic.asText(social.link_label) == "Facebook" && (
-                <FaFacebook className="h-6 w-6 text-brand-darkcyan" />
+                <FaFacebook className="h-6 w-6 text-brand-darkcyan hover:text-brand-darkgreen" />
               )}
               {prismic.asText(social.link_label) == "Instagram" && (
-                <FaInstagram className="h-6 w-6 text-brand-darkcyan" />
+                <FaInstagram className="h-6 w-6 text-brand-darkcyan hover:text-brand-darkgreen" />
               )}
             </PrismicNextLink>
           ))}
