@@ -159,10 +159,10 @@ async function Footer() {
               ))}
             </div>
           </div>
-          <div className="w-full md:w-2/4 flex items-center justify-between">
+          <div className="w-full md:w-2/4 flex flex-col justify-between">
             <div className="flex items-center">
             <h3 className="text-lg font-bold me-5">Socials</h3>
-            <div className="flex space-x-2">
+            <div className="flex items-center space-x-2">
               {settings.data.socials.map((social, index) => (
                 <PrismicNextLink
                   key={index}
@@ -176,7 +176,9 @@ async function Footer() {
                   )}
                 </PrismicNextLink>
               ))}
+              <span className="mb-2 lg:mb-0">
               <WhatsAppButton h={6} w={6} isWhite={true} />
+              </span>
             </div>
             </div>
             <div className="flex items-center">
@@ -189,7 +191,7 @@ async function Footer() {
                 <img
                   src="https://wpfitness.eu/wp-content/uploads/2022/10/anpc-sal.png"
                   alt="Solutionarea Alternativa a Litigiilor"
-                  className="w-48 h-auto mx-2 my-2"
+                  className="w-48 h-auto me-2 my-2"
                 />
               </PrismicNextLink>
               <br />
