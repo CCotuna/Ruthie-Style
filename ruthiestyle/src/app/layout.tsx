@@ -60,7 +60,7 @@ async function Header() {
                 className="w-16 h-16"
               />
             )}
-            <span className="hidden md:block">
+            <span className="mt-5 lg:mt-0">
               <PrismicText field={settings.data.siteTitle} />
             </span>
           </PrismicNextLink>

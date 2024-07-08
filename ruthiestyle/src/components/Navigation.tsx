@@ -69,7 +69,6 @@ export function Navigation({ navigation }: { navigation: any }) {
                         ></rect>
                     </svg>
                 </button>
-
             </div>
             <nav className="hidden lg:block">
                 <ul className="flex flex-wrap gap-6 md:gap-10">
@@ -99,9 +98,6 @@ export function Navigation({ navigation }: { navigation: any }) {
                                     ))}
                                 </ul>
                             )}
-
-
-
                         </li>
                     ))}
                 </ul>
