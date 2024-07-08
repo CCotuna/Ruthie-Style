@@ -86,7 +86,7 @@ export function Navigation({ navigation }: { navigation: any }) {
                             </PrismicNextLink>
                             <PrismicText field={slice.items.length} />
                             {slice.primary.items.length > 0 && (
-                                <ul className="absolute transform -translate-x-1/2 text-white rounded hidden p-5 pt-8 bg-brand-darkcyan shadow-lg group-hover:grid grid-cols-1 md:grid-cols-3 gap-4 whitespace-nowrap min-w-[36rem] max-w-[48rem]">
+                                <ul className="absolute transform -translate-x-1/2 text-white rounded-lg hidden p-5 pt-8 bg-brand-darkcyan shadow-lg group-hover:grid grid-cols-1 md:grid-cols-3 gap-2 whitespace-nowrap min-w-[36rem] max-w-[48rem]">
                                     {slice.primary.items.map((item: { child_link: prismic.LinkField | null | undefined; child_link_label: prismic.RichTextField | null | undefined; }, itemIndex: React.Key | null | undefined) => (
                                         <li key={itemIndex} className="mb-4">
                                             <PrismicNextLink

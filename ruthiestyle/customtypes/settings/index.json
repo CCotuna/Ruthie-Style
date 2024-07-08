@@ -23,6 +23,14 @@
           "thumbnails": []
         }
       },
+      "logowhite": {
+        "type": "Image",
+        "config": {
+          "label": "LogoWhite",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "socials": {
         "type": "Group",
         "config": {
@@ -47,6 +55,49 @@
               }
             }
           }
+        }
+      },
+      "address": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Address",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "phone": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Phone",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "email": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Email",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "anpc_sal": {
+        "type": "Link",
+        "config": {
+          "label": "anpc_sal",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "anpc_sol": {
+        "type": "Link",
+        "config": {
+          "label": "anpc_sol",
+          "placeholder": "",
+          "select": null
         }
       }
     }
