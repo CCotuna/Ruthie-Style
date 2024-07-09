@@ -14,6 +14,7 @@ import { Bounded } from "@/components/Bounded";
 import { Navigation } from "@/components/Navigation";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollTopButton from "@/components/ScrollTopButton";
+import Chatbot from "@/components/ChatBot";
 
 import * as prismic from "@prismicio/client";
 
@@ -26,6 +27,15 @@ const inter = Inter({
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+
+  const client = createClient();
+  const chatbotData = await client.getSingle('chatbot');
+  const faqs = chatbotData.data.items.map((item: any) => ({
+    question: item.question,
+    answer: item.answer,
+  }));
+
+
   return (
     <html lang="en" className={inter.variable}>
       <body className="overflow-x-hidden antialiased">
@@ -48,6 +58,9 @@ async function Header() {
   return (
     <div className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
       <Bounded as="header" yPadding="xs">
+        <div className="flex items-center justify-center text-center lg:hidden">
+          <Chatbot />
+        </div>
         <div className="flex flex-wrap align-bottom items-center justify-between gap-x-6 gap-y-3 leading-none">
           <PrismicNextLink
             href="/"

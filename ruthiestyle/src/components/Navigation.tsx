@@ -9,6 +9,8 @@ import { PrismicNextLink } from "@prismicio/next";
 import { PrismicText } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
 
+import Chatbot from "@/components/ChatBot";
+
 export function Navigation({ navigation }: { navigation: any }) {
     const [isOpen, setIsOpen] = useState(false);
     const [activeParent, setActiveParent] = useState(null);
@@ -70,8 +72,8 @@ export function Navigation({ navigation }: { navigation: any }) {
                     </svg>
                 </button>
             </div>
-            <nav className="hidden lg:block">
-                <ul className="flex flex-wrap gap-6 md:gap-10">
+            <nav className="hidden lg:flex lg:items-center">
+                <ul className=" flex flex-wrap gap-6 md:gap-10">
                     {navigation.data.slices.map((slice: { primary: { nav_item_title_label: prismic.RichTextField | null | undefined; nav_item_title_link: prismic.LinkField | null | undefined; items: { child_link: prismic.LinkField | null | undefined; child_link_label: prismic.RichTextField | null | undefined; }[]; }; items: { length: prismic.RichTextField | null | undefined; }; }) => (
                         <li
                             key={prismic.asText(slice.primary.nav_item_title_label)}
@@ -101,6 +103,7 @@ export function Navigation({ navigation }: { navigation: any }) {
                         </li>
                     ))}
                 </ul>
+                <span className=" ms-10"><Chatbot /></span>
             </nav>
             {isOpen && (
                 <nav className="block lg:hidden w-full pt-4 pb-4">

@@ -4,6 +4,63 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *ChatBot → items*
+ */
+export interface ChatbotDocumentDataItemsItem {
+  /**
+   * question field in *ChatBot → items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: chatbot.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question: prismic.RichTextField;
+
+  /**
+   * answer field in *ChatBot → items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: chatbot.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+}
+
+/**
+ * Content for ChatBot documents
+ */
+interface ChatbotDocumentData {
+  /**
+   * items field in *ChatBot*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: chatbot.items[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<ChatbotDocumentDataItemsItem>>;
+}
+
+/**
+ * ChatBot document from Prismic
+ *
+ * - **API ID**: `chatbot`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ChatbotDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ChatbotDocumentData>,
+    "chatbot",
+    Lang
+  >;
+
 type NavigationDocumentDataSlicesSlice = NavDropdownItemSlice;
 
 /**
@@ -279,6 +336,7 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | ChatbotDocument
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
@@ -1672,6 +1730,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ChatbotDocument,
+      ChatbotDocumentData,
+      ChatbotDocumentDataItemsItem,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataSlicesSlice,
