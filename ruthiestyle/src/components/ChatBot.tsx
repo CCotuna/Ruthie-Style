@@ -104,6 +104,23 @@ const faqsJson = [
                 "answer": "Da, puteti primi asistenta in limba engleza. Echipa noastra de suport este formata din operatori care vorbesc fluent limba engleza si va pot ajuta cu orice informatii sau solicitari."
             }
         ]
+    },
+    {
+        "id": 7,
+        "question": "Cum pot schimba o comanda?",
+        "answer": "Daca doriti sa schimbati o comanda plasata, va rugam sa ne contactati cat mai curand posibil. In functie de stadiul de procesare al comenzii, putem incerca sa facem modificarile solicitate.",
+        "subquestions": [
+            {
+                "id": 1,
+                "question": "Care sunt conditiile de schimbare a unei comenzi?",
+                "answer": "Produsul trebuie sa fie in aceeasi stare in care a fost livrat, fara urme de uzura sau deteriorare. Este necesar sa returnati produsul in ambalajul original, impreuna cu toate accesoriile si documentele primite."
+            },
+            {
+                "id": 2,
+                "question": "Care sunt costurile de schimbare a unei comenzi?",
+                "answer": "Costurile de schimbare a unei comenzi sunt suportate de catre client. Va recomandam sa optati pentru o metoda de transport sigura si sa asigurati coletul pentru a evita eventualele probleme."
+            }
+        ]
     }
 ]
 
@@ -157,14 +174,26 @@ const Chatbot: React.FC = () => {
 
     const handleMenuClick = () => {
         setIsOpen(!isOpen);
+
+        if (isOpen) {
+            setChatHistory([]);
+            setCurrentFaqs(faqsJson);
+            setSelectedQuestion(null);
+        }
+
+        if (!isOpen) {
+            document.body.classList.add('overflow-hidden');
+        } else {
+            document.body.classList.remove('overflow-hidden');
+        }
     }
 
     return (
         <>
             <div className="relative">
-            <div className='text-brand-darkgreen cursor-pointer border-b-2 mb-3 block lg:hidden'>
+            <div className='text-brand-darkgreen cursor-pointer border-b-2 block lg:hidden'>
                 <button onClick={handleMenuClick}>
-                <span className='text-red-500 font-bold'>
+                <span className='text-brand-darkcyan font-bold'>
                 - Ruthie Chat -
                 </span>
                 </button> 
@@ -205,9 +234,9 @@ const Chatbot: React.FC = () => {
                 </button>
             </div>
             {isOpen && (
-                <div className="fixed inset-0 z-50 flex flex-col bg-white p-4">
+                <div className="fixed inset-0 z-50 flex flex-col bg-brand-darkgreen p-4">
                     <div className="flex justify-between items-center">
-                        <h2 className="text-2xl font-bold">RuthieChat</h2>
+                        <h2 className="text-2xl font-bold text-white">Ruthie<span className='text-brand-darkcyan'>Chat</span></h2>
                         <button
                             className="font-medium text-brand-darkgreen cursor-pointer"
                             onClick={handleMenuClick}
@@ -219,7 +248,7 @@ const Chatbot: React.FC = () => {
                                     height="10"
                                     rx="10"
                                     ry="10"
-                                    fill="#082D0F"
+                                    fill="#EEFCF0"
                                 ></rect>
                                 <rect
                                     y="20"
@@ -235,7 +264,7 @@ const Chatbot: React.FC = () => {
                                     height="10"
                                     rx="15"
                                     ry="5"
-                                    fill="#082D0F"
+                                    fill="#EEFCF0"
                                 ></rect>
                             </svg>
                         </button>
@@ -244,30 +273,30 @@ const Chatbot: React.FC = () => {
                         {chatHistory.length === 0 && (
                             <div className="bg-gray-100 p-3 rounded text-left">
                                 <p className="font-semibold">
-                                <TypingEffect text={"Hello! How can we assist you today?"} /></p>
+                                <TypingEffect text={"Salut! Cu ce te pot ajuta azi?"} /></p>
                             </div>
                         )}
                         {chatHistory.map((message, index) => (
-                            <div key={index} className="bg-gray-100 p-3 rounded">
+                            <div key={index} className="bg-gray-100 p-3 rounded text-left">
                                 <p className="font-semibold">{message}</p>
                             </div>
                         ))}
                         {selectedQuestion && (
-                            <div className="bg-blue-100 p-3 rounded mt-2">
+                            <div className="bg-brand-darkcyan text-white p-3 rounded mt-2 text-left">
                                 <TypingEffect text={selectedQuestion.answer} />
                             </div>
                         )}
                         {currentFaqs.length > 0 && (
                             <div className="bg-gray-100 text-left p-3 rounded mt-4">
                                 {selectedQuestion ? (
-                                    <p className="font-semibold ms-1">Other frequent asked questions</p>
+                                    <p className="font-semibold ms-1 text-brand-darkgreen">Alte întrebări frecvente</p>
                                 ) : (
-                                    <p className="font-semibold ms-1">Frequent asked questions</p>
+                                    <p className="font-semibold ms-1 text-brand-darkgreen">Întrebări frecvente</p>
                                 )}
                                 {currentFaqs.map((faq) => (
                                     <div key={faq.id} className="mt-2">
                                         <div
-                                            className="font-semibold cursor-pointer bg-gray-200 p-3 rounded w-fit"
+                                            className="text-left font-semibold cursor-pointer bg-gray-200 p-3 rounded w-fit"
                                             onClick={() => handleQuestionClick(faq)}
                                         >
                                             {faq.question}
