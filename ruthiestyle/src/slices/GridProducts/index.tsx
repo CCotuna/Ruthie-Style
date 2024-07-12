@@ -33,7 +33,7 @@ const GridProducts = ({ slice }: GridProductsProps): JSX.Element => {
           <div key={index} className="flex border p-2 me-4 rounded-lg">
             <div className="flex-shrink-0 md:m-6 relative overflow-hidden bg-brand-darkcyan rounded-lg max-w-xs shadow-lg transform transition duration-300 hover:scale-105 hover:z-20">
               <PrismicNextLink field={product.image_link}>
-              <PrismicImage field={product.image} className="w-full" />
+              <PrismicImage field={product.image} className="w-full border" />
               </PrismicNextLink>
               <div className="text-white px-6 pb-6 mt-6 flex flex-col">
                 <span className="block opacity-75 -mb-1">
