@@ -53,6 +53,14 @@
                   "thumbnails": []
                 }
               },
+              "image_link": {
+                "type": "Link",
+                "config": {
+                  "label": "image link",
+                  "placeholder": "",
+                  "select": "media"
+                }
+              },
               "product_name": {
                 "type": "StructuredText",
                 "config": {

@@ -565,6 +565,16 @@ export interface GridProductsSliceDefaultPrimaryProductsItem {
   image: prismic.ImageField<never>;
 
   /**
+   * image link field in *GridProducts → Default → Primary → Products*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.products[].image_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  image_link: prismic.LinkToMediaField;
+
+  /**
    * Product Name field in *GridProducts → Default → Primary → Products*
    *
    * - **Field Type**: Rich Text
