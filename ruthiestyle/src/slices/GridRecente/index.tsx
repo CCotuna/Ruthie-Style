@@ -24,7 +24,7 @@ const GridRecente = ({ slice }: GridRecenteProps): JSX.Element => {
           <PrismicText field={slice.primary.title} />
         </h2>
       </div>
-      <div className="w-fit mx-auto gap-4 mt-5 md:gap-0 md:mt-0 md:mx-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center mb-5">
+      <div className="w-fit lg:w-full mx-auto gap-4 mt-5 md:gap-0 md:mt-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center justify-center mb-5">
   {slice.primary.products.map((product, index) => (
     <div className="flex px-4 items-stretch" key={index}>
       <div className="block overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:z-20 relative">
