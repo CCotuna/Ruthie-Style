@@ -21,11 +21,12 @@ const ImagesGrid = ({ slice }: ImagesGridProps): JSX.Element => {
   const sliderSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
+    speed: 3000,
     autoplaySpeed: 2000,
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 1024,
@@ -63,7 +64,7 @@ const ImagesGrid = ({ slice }: ImagesGridProps): JSX.Element => {
       <h2 className="text-4xl font-bold mb-12 flex max-w-lg uppercase text-brand-darkgreen">
         <PrismicRichText field={slice.primary.title} />
       </h2>
-      <div>
+      <div className="slider-container">
       <Slider {...sliderSettings}>
         {slice.primary.images.map((item, index) => (
           <div className="flex px-4 items-stretch" key={index}>

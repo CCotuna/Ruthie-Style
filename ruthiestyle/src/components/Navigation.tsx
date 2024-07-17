@@ -81,7 +81,7 @@ export function Navigation({ navigation }: { navigation: any }) {
                         >
                             <PrismicNextLink
                                 field={slice.primary.nav_item_title_link}
-                                className="hover:text-brand-darkcyan"
+                                className="hover:text-brand-darkcyan py-3 bg-text-brand-darkcyan"
                             >
                                 <PrismicText field={slice.primary.nav_item_title_label} />
                             </PrismicNextLink>

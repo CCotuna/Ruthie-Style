@@ -18,7 +18,7 @@ const GridProducts = ({ slice }: GridProductsProps): JSX.Element => {
       className="pb-8"
     >
       <div className="text-left md:text-center p-6 md:p-10 pb-0">
-      <h4 className="text-lg font-bold tracking-tight text-red-500 mt-4">
+        <h4 className="text-lg font-bold tracking-tight text-red-500 mt-4">
           <PrismicText field={slice.primary.subtitle} />
         </h4>
         <h2 className="text-4xl font-bold uppercase text-brand-darkgreen">
@@ -33,7 +33,7 @@ const GridProducts = ({ slice }: GridProductsProps): JSX.Element => {
           <div key={index} className="flex border p-2 me-4 rounded-lg">
             <div className="flex-shrink-0 md:m-6 relative overflow-hidden bg-brand-darkcyan rounded-lg max-w-xs shadow-lg transform transition duration-300 hover:scale-105 hover:z-20">
               <PrismicNextLink field={product.image_link}>
-              <PrismicImage field={product.image} className="w-full" />
+                <PrismicImage field={product.image} className="w-full" />
               </PrismicNextLink>
               <div className="text-white px-6 pb-6 mt-6 flex flex-col">
                 <span className="block opacity-75 -mb-1">
@@ -41,7 +41,7 @@ const GridProducts = ({ slice }: GridProductsProps): JSX.Element => {
                 </span>
                 <span className="block font-semibold text-lg">
                   <PrismicText field={product.product_name} />
-                </span>    
+                </span>
               </div>
               <span className="absolute bottom-0 right-0 m-4 bg-white rounded-lg text-orange-500 text-xs text-center font-bold px-3 py-2 leading-none items-center">
                 RON <PrismicText field={product.product_price} />
@@ -49,6 +49,12 @@ const GridProducts = ({ slice }: GridProductsProps): JSX.Element => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex justify-center items-center ">
+        <PrismicNextLink field={slice.primary.link}
+          className="bg-brand-darkgreen text-brand-honeydew rounded-lg px-5 py-2 max-w-fit">
+          <PrismicText field={slice.primary.label} />
+        </PrismicNextLink>
       </div>
     </section>
   );

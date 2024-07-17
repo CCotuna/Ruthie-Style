@@ -127,6 +127,24 @@
 						}
 					}
 				]
+			},
+			"label": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "In aliqua tempor velit. Consequat ipsum nisi irure ea irure elit culpa est cillum nostrud anim laboris laborum labore."
+						}
+					}
+				]
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
 			}
 		},
 		"items": []

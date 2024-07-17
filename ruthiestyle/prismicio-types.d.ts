@@ -650,6 +650,26 @@ export interface GridProductsSliceDefaultPrimary {
   products: prismic.GroupField<
     Simplify<GridProductsSliceDefaultPrimaryProductsItem>
   >;
+
+  /**
+   * Label field in *GridProducts → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.label
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  label: prismic.RichTextField;
+
+  /**
+   * Link field in *GridProducts → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
 }
 
 /**

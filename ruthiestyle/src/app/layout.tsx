@@ -73,7 +73,7 @@ async function Header() {
                 className="w-16 h-16"
               />
             )}
-            <span className="mt-5 lg:mt-0">
+            <span className="mt-5 lg:mt-0 hover:text-brand-darkcyan">
               <PrismicText field={settings.data.siteTitle} />
             </span>
           </PrismicNextLink>
