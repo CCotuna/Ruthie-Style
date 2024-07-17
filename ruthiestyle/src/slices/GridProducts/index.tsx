@@ -2,6 +2,8 @@ import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { PrismicImage, PrismicText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
+import Link from "next/link";
+
 /**
  * Props for `GridProducts`.
  */
@@ -32,30 +34,33 @@ const GridProducts = ({ slice }: GridProductsProps): JSX.Element => {
         {slice.primary.products.map((product, index) => (
           <div key={index} className="flex border p-2 me-4 rounded-lg">
             <div className="flex-shrink-0 md:m-6 relative overflow-hidden bg-brand-darkcyan rounded-lg max-w-xs shadow-lg transform transition duration-300 hover:scale-105 hover:z-20">
-              <PrismicNextLink field={product.image_link}>
+              <Link href={`/products/${product.uid}`}>
                 <PrismicImage field={product.image} className="w-full" />
-              </PrismicNextLink>
-              <div className="text-white px-6 pb-6 mt-6 flex flex-col">
-                <span className="block opacity-75 -mb-1">
-                  <PrismicText field={product.product_category} />
+                <div className="text-white px-6 pb-6 mt-6 flex flex-col">
+                  <span className="block opacity-75 -mb-1">
+                    <PrismicText field={product.product_category} />
+                  </span>
+                  <span className="block font-semibold text-lg">
+                    <PrismicText field={product.product_name} />
+                  </span>
+                </div>
+                <span className="absolute bottom-0 right-0 m-4 bg-white rounded-lg text-orange-500 text-xs text-center font-bold px-3 py-2 leading-none items-center">
+                  RON <PrismicText field={product.product_price} />
                 </span>
-                <span className="block font-semibold text-lg">
-                  <PrismicText field={product.product_name} />
-                </span>
-              </div>
-              <span className="absolute bottom-0 right-0 m-4 bg-white rounded-lg text-orange-500 text-xs text-center font-bold px-3 py-2 leading-none items-center">
-                RON <PrismicText field={product.product_price} />
-              </span>
+              </Link>
             </div>
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center ">
-        <PrismicNextLink field={slice.primary.link}
-          className="bg-brand-darkgreen text-brand-honeydew rounded-lg px-5 py-2 max-w-fit">
-          <PrismicText field={slice.primary.label} />
-        </PrismicNextLink>
-      </div>
+      {slice.primary.label?.length > 0 && (
+        <div className="flex justify-center items-center">
+          <PrismicNextLink 
+            field={slice.primary.link}
+            className="bg-brand-darkgreen text-brand-honeydew rounded-lg px-5 py-2 max-w-fit">
+            <PrismicText field={slice.primary.label} />
+          </PrismicNextLink>
+        </div>
+      )}
     </section>
   );
 };

@@ -23,7 +23,7 @@ const AlternateGrid = ({ slice }: AlternateGridProps): JSX.Element => {
           <PrismicNextImage
             field={slice.primary.image}
             className={`
-               max-w-full md:max-w-2xl self-center md:ms-10 md:max-h-[27rem]
+               max-w-full md:max-w-2xl self-center md:ms-10 md:max-h-[27rem] rounded-lg
               ${isImageRight ? "order-2 md:order-2" : "order-1 md:order-1"}
             `}
           />

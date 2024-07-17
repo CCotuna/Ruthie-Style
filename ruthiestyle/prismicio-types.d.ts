@@ -191,6 +191,71 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 /**
+ * Content for Product documents
+ */
+interface ProductDocumentData {
+  /**
+   * Product Name field in *Product*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  product_name: prismic.RichTextField;
+
+  /**
+   * Image field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Product Description field in *Product*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  product_description: prismic.RichTextField;
+
+  /**
+   * Product Price field in *Product*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_price
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  product_price: prismic.RichTextField;
+}
+
+/**
+ * Product document from Prismic
+ *
+ * - **API ID**: `product`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProductDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProductDocumentData>,
+    "product",
+    Lang
+  >;
+
+/**
  * Item in *Settings → Socials*
  */
 export interface SettingsDocumentDataSocialsItem {
@@ -339,6 +404,7 @@ export type AllDocumentTypes =
   | ChatbotDocument
   | NavigationDocument
   | PageDocument
+  | ProductDocument
   | SettingsDocument;
 
 /**
@@ -554,6 +620,16 @@ export type AlternateGridSlice = prismic.SharedSlice<
  * Item in *GridProducts → Default → Primary → Products*
  */
 export interface GridProductsSliceDefaultPrimaryProductsItem {
+  /**
+   * UID field in *GridProducts → Default → Primary → Products*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid_products.default.primary.products[].uid
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  uid: prismic.ContentRelationshipField;
+
   /**
    * Image field in *GridProducts → Default → Primary → Products*
    *
@@ -1769,6 +1845,8 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      ProductDocument,
+      ProductDocumentData,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataSocialsItem,

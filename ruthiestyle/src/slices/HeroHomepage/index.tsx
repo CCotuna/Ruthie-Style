@@ -26,7 +26,8 @@ const HeroHomepage = ({ slice }: HeroHomepageProps): JSX.Element => {
             <p className="text-lg md:text-xl font-light text-gray-500 mb-6 md:mb-8 max-w-xl">
               <PrismicText field={slice.primary.subtitle} />
             </p>
-            <PrismicNextLink
+            {slice.primary.contact_label?.length > 0 && (
+              <PrismicNextLink
               field={slice.primary.contact}
               className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
             >
@@ -44,6 +45,7 @@ const HeroHomepage = ({ slice }: HeroHomepageProps): JSX.Element => {
                 ></path>
               </svg>
             </PrismicNextLink>
+            )}
           </div>
           <div className="md:col-span-5 mt-10 md:mt-12">
             <PrismicImage field={slice.primary.image} className="mx-auto" />

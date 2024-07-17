@@ -45,6 +45,13 @@
             "label": "Products",
             "repeat": true,
             "fields": {
+              "uid": {
+                "type": "Link",
+                "config": {
+                  "label": "UID",
+                  "select": "document"
+                }
+              },
               "image": {
                 "type": "Image",
                 "config": {
