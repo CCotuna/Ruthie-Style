@@ -30,7 +30,7 @@ const GridRecente = ({ slice }: GridRecenteProps): JSX.Element => {
       <div className="block overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:z-20 relative">
         <PrismicImage
           field={product.image}
-          className="w-full h-auto min-h-32 lg:min-w-[24rem] max-h-96 object-cover"
+          className="w-full h-auto min-h-32 min-w-[20rem] lg:min-w-[24rem] max-h-96 object-cover"
         />
         <div className="absolute top-0 right-0">
           <svg
